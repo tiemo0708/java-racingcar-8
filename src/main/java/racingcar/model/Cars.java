@@ -19,22 +19,19 @@ public class Cars {
         this.cars = new ArrayList<>(cars);
     }
 
-    public static Cars fromNames(String carNames) {
-        return fromNames(carNames, new DefaultMoveStrategy());
+    public static Cars fromNames(List<String> names) {
+        return fromNames(names, new DefaultMoveStrategy());
     }
 
-    public static Cars fromNames(String carNames, MoveStrategy moveStrategy) {
-        String[] names = carNames.split(",");
+    public static Cars fromNames(List<String> names, MoveStrategy moveStrategy) {
         validateUniqueNames(names);
-
-        List<Car> cars = new ArrayList<>();
-        for (String name : names) {
-            cars.add(new Car(name.trim(), moveStrategy));
-        }
+        List<Car> cars = names.stream()
+                .map(name -> new Car(name.trim(), moveStrategy))
+                .collect(Collectors.toList());
         return new Cars(cars);
     }
 
-    private static void validateUniqueNames(String[] names) {
+    private static void validateUniqueNames(List<String> names) {
         Set<String> uniqueNames = new HashSet<>();
         for (String name : names) {
             String trimmedName = name.trim();

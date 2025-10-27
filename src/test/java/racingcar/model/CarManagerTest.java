@@ -12,7 +12,7 @@ class CarManagerTest {
     @Test
     void initializeCars_shouldCreateCars() {
         CarManager cm = new CarManager(new SeqRng(4, 4));
-        cm.initializeCars("pobi,woni");
+        cm.initializeCars(List.of("pobi", "woni"));
         assertEquals(List.of("pobi : ", "woni : "), cm.getCurrentRoundResults()); // 아직 play 전
     }
 
@@ -20,7 +20,7 @@ class CarManagerTest {
     @Test
     void playRound_shouldMoveAndFormatResults() {
         CarManager cm = new CarManager(new SeqRng(4, 3, 9));
-        cm.initializeCars("pobi,woni,jun");
+        cm.initializeCars(List.of("pobi", "woni", "jun"));
         cm.playRound();
         var results = cm.getCurrentRoundResults();
         assertTrue(results.contains("pobi : -"));
@@ -32,7 +32,7 @@ class CarManagerTest {
     @Test
     void getWinners_shouldReturnWinnersFromCars() {
         CarManager cm = new CarManager(new SeqRng(4, 3)); // a:move, b:stop
-        cm.initializeCars("pobi,woni");
+        cm.initializeCars(List.of("pobi", "woni"));
         cm.playRound();
         var winners = cm.getWinners();
         assertEquals(1, winners.size());

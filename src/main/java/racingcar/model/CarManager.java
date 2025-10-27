@@ -12,7 +12,7 @@ public class CarManager {
         this.randomNumberGenerator = randomNumberGenerator;
     }
 
-    public void initializeCars(String carNames) {
+    public void initializeCars(List<String> carNames) {
         this.cars = Cars.fromNames(carNames);
     }
 
