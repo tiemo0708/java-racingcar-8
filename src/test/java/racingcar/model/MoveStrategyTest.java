@@ -39,12 +39,12 @@ public class MoveStrategyTest {
     // Cars 객체가 이름 목록으로부터 올바르게 생성되는지 검증
     @Test
     void testCarsWithDefaultStrategy() {
-        Cars cars = Cars.fromNames("pobi,crong");
+        Cars cars = Cars.fromNames(List.of("pobi", "woni"));
 
         assertEquals(2, cars.size());
 
         List<Car> carList = cars.getCars();
         assertEquals("pobi", carList.get(0).getName());
-        assertEquals("crong", carList.get(1).getName());
+        assertEquals("woni", carList.get(1).getName());
     }
 }

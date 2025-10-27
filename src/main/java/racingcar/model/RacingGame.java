@@ -16,7 +16,7 @@ public class RacingGame {
         this.roundManager = new RoundManager();
     }
 
-    public void initialize(String carNames, int tryCount) {
+    public void initialize(List<String> carNames, int tryCount) {
         this.carManager.initializeCars(carNames);
         this.tryCount = tryCount;
         this.currentRound = INITIAL_ROUND;

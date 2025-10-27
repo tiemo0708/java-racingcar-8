@@ -12,7 +12,7 @@ class RacingGameTest {
     @Test
     void initialize_and_hasNextRound_shouldWork() {
         RacingGame game = new RacingGame(new SeqRng(4, 4, 4));
-        game.initialize("pobi,woni", 2);
+        game.initialize(List.of("pobi", "woni"), 2);
 
         assertTrue(game.hasNextRound());
         game.playRound();
@@ -25,7 +25,7 @@ class RacingGameTest {
     @Test
     void playRound_shouldRecordResultsAndExposeAll() {
         RacingGame game = new RacingGame(new SeqRng(4, 3, 9, 0));
-        game.initialize("pobi,woni", 2);
+        game.initialize(List.of("pobi", "woni"), 2);
 
         game.playRound(); // pobi:move, woni:stop
         game.playRound(); // pobi:move, woni:stop
@@ -40,7 +40,7 @@ class RacingGameTest {
     @Test
     void getWinners_shouldReturnWinners() {
         RacingGame game = new RacingGame(new SeqRng(4, 3)); // 한 라운드만으로도 a가 우승
-        game.initialize("pobi,woni", 1);
+        game.initialize(List.of("pobi", "woni"), 1);
         game.playRound();
         var winners = game.getWinners();
         assertEquals(List.of("pobi"), winners);
