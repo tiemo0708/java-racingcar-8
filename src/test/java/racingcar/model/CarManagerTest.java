@@ -36,7 +36,7 @@ class CarManagerTest {
         cm.playRound();
         var winners = cm.getWinners();
         assertEquals(1, winners.size());
-        assertEquals("pobi", winners.get(0));
+        assertEquals("pobi", winners.getFirst());
     }
 
     // 테스트용 RNG: 주어진 시퀀스를 차례로 반환, 고갈 시 마지막 값을 반복
