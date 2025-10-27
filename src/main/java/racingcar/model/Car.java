@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import racingcar.error.ErrorMessage;
+import racingcar.error.ErrorMessages;
 
 public class Car {
     private static final int INITIAL_POSITION = 0;
@@ -24,7 +24,7 @@ public class Car {
     private void validateName(String name) {
         String trimmed = name.trim();
         if (trimmed.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_TOO_LONG);
+            throw new IllegalArgumentException(ErrorMessages.CAR_NAME_TOO_LONG);
         }
     }
 

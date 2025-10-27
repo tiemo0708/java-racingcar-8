@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import racingcar.error.ErrorMessage;
+import racingcar.error.ErrorMessages;
 import racingcar.generator.RandomNumberGenerator;
 
 import java.util.ArrayList;
@@ -39,7 +39,7 @@ public class Cars {
         for (String name : names) {
             String trimmedName = name.trim();
             if (!uniqueNames.add(trimmedName)) {
-                throw new IllegalArgumentException(ErrorMessage.CAR_NAME_DUPLICATE);
+                throw new IllegalArgumentException(ErrorMessages.CAR_NAME_DUPLICATE);
             }
         }
     }

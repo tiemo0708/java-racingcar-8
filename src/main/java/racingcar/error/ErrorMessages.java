@@ -1,6 +1,6 @@
 package racingcar.error;
 
-public class ErrorMessage {
+public class ErrorMessages {
     private static final String ERROR_PREFIX = "[ERROR] ";
 
     public static final String CAR_NAME_NULL_OR_EMPTY = ERROR_PREFIX + "자동차 이름은 비어 있을 수 없습니다.";
